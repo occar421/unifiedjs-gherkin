@@ -1,0 +1,37 @@
+{
+  "name": "micromark-extention-gherkin",
+  "version": "0.0.0",
+  "description": "micromark extension to support Markdown with Gherkin (MDG).",
+  "homepage": "https://github.com/occar421/unifiedjs-gherkin/packages/micromark-extention-gherkin",
+  "bugs": {
+    "url": "https://github.com/occar421/unifiedjs-gherkin/issues"
+  },
+  "license": "Apache-2.0",
+  "author": "MasuqaT <occar@hotmail.co.jp>",
+  "repository": "https://github.com/occar421/unifiedjs-gherkin/packages/micromark-extention-gherkin",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "dev": "vp pack --watch",
+    "test": "vp test",
+    "check": "vp check",
+    "prepublishOnly": "vp run build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "@typescript/native-preview": "7.0.0-dev.20260509.2",
+    "bumpp": "^11.1.0",
+    "typescript": "^6.0.3",
+    "vite-plus": "^0.1.20"
+  }
+}

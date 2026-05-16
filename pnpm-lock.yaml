@@ -40,6 +40,24 @@ importers:
         specifier: ^0.1.20
         version: 0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3)(vite@8.0.13(@types/node@25.8.0)(jiti@2.7.0)(yaml@2.9.0))(yaml@2.9.0)
 
+  packages/micromark-extention-gherkin:
+    devDependencies:
+      '@types/node':
+        specifier: ^25.6.2
+        version: 25.8.0
+      '@typescript/native-preview':
+        specifier: 7.0.0-dev.20260509.2
+        version: 7.0.0-dev.20260509.2
+      bumpp:
+        specifier: ^11.1.0
+        version: 11.1.0
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vite-plus:
+        specifier: ^0.1.20
+        version: 0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3)(vite@8.0.13(@types/node@25.8.0)(jiti@2.7.0)(yaml@2.9.0))(yaml@2.9.0)
+
   packages/remark-gherkin:
     devDependencies:
       '@types/node':
