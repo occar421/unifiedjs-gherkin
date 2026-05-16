@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "mdast-util-gherkin": "workspace:*",
-    "micromark-extention-gherkin": "workspace:*",
     "unified": "catalog:"
   },
   "devDependencies": {

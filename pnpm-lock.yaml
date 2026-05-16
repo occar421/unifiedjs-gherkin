@@ -21,9 +21,6 @@ catalogs:
     mdast-util-to-markdown:
       specifier: ^2.1.2
       version: 2.1.2
-    micromark-util-types:
-      specifier: ^2.0.2
-      version: 2.0.2
     rehype-stringify:
       specifier: ^10.0.1
       version: 10.0.1
@@ -116,35 +113,11 @@ importers:
         specifier: ^0.1.20
         version: 0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3)(vite@8.0.13(@types/node@25.8.0)(jiti@2.7.0)(yaml@2.9.0))(yaml@2.9.0)
 
-  packages/micromark-extention-gherkin:
-    devDependencies:
-      '@types/node':
-        specifier: ^25.6.2
-        version: 25.8.0
-      '@typescript/native-preview':
-        specifier: 7.0.0-dev.20260509.2
-        version: 7.0.0-dev.20260509.2
-      bumpp:
-        specifier: ^11.1.0
-        version: 11.1.0
-      micromark-util-types:
-        specifier: 'catalog:'
-        version: 2.0.2
-      typescript:
-        specifier: ^6.0.3
-        version: 6.0.3
-      vite-plus:
-        specifier: ^0.1.20
-        version: 0.1.21(@types/node@25.8.0)(jiti@2.7.0)(typescript@6.0.3)(vite@8.0.13(@types/node@25.8.0)(jiti@2.7.0)(yaml@2.9.0))(yaml@2.9.0)
-
   packages/remark-gherkin:
     dependencies:
       mdast-util-gherkin:
         specifier: workspace:*
         version: link:../mdast-util-gherkin
-      micromark-extention-gherkin:
-        specifier: workspace:*
-        version: link:../micromark-extention-gherkin
       unified:
         specifier: 'catalog:'
         version: 11.0.5
