@@ -17,7 +17,9 @@ export interface GherkinStepKeyword extends Literal {
 }
 export interface GherkinDelimitedParameter extends Node {
   type: typeof GHERKIN_DELIMITED_PARAMETER_TYPE;
+  prefix: string;
   ident: string;
+  suffix: string;
 }
 
 declare module "mdast" {
