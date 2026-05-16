@@ -7,11 +7,14 @@ export const Types = {
 
 export const SegmentKeywords = {
   FEATURE_KEYWORD: "Feature:",
-  BACKGROUND_KEYWORD: "Background:",
   RULE_KEYWORD: "Rule:",
-  SCENARIO_KEYWORD: "Scenario:",
-  SCENARIO_OUTLINE_KEYWORD: "Scenario Outline:",
   EXAMPLE_KEYWORD: "Example:",
+  SCENARIO_KEYWORD: "Scenario:",
+  BACKGROUND_KEYWORD: "Background:",
+  SCENARIO_OUTLINE_KEYWORD: "Scenario Outline:",
+  SCENARIO_TEMPLATE_KEYWORD: "Scenario Template:",
+  EXAMPLES_KEYWORD: "Examples:",
+  SCENARIOS_KEYWORD: "Scenarios:",
 } as const;
 
 export const StepKeywords = {
