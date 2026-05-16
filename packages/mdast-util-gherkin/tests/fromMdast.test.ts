@@ -80,4 +80,37 @@ suite("Markdown with Gherkin to mdast", () => {
       expect(str).toMatch(`* ${keyword} there are <start> cucumbers`);
     });
   });
+
+  suite("Tags", () => {
+    test("Can serialize it to Tags", () => {
+      const str = markdownOfTree({
+        type: "root",
+        children: [
+          {
+            type: "paragraph",
+            children: [
+              { type: "gherkinTag", value: "@important" },
+              { type: "text", value: " " },
+              { type: "gherkinTag", value: "@essential" },
+            ],
+          },
+          {
+            type: "heading",
+            depth: 3,
+            children: [
+              { type: "gherkinSegmentKeyword", value: "Scenario Outline:" },
+              { type: "text", value: "eating" },
+            ],
+          },
+        ],
+      });
+
+      expect(str).toMatch(
+        `${"`@important` `@essential`"}
+
+### Scenario Outline: eating
+`,
+      );
+    });
+  });
 });

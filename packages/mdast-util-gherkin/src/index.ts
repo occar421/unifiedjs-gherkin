@@ -12,6 +12,9 @@ export function gherkinFromMarkdown(): FromMarkdownExtension {
 
 export function gherkinToMarkdown(_options: {} = {}): ToMarkdownExtension {
   const customHandlers: Record<string, Handle> = {
+    [Types.GHERKIN_TAG_TYPE]: (node) => {
+      return "`" + node.value + "`";
+    },
     [Types.GHERKIN_SEGMENT_KEYWORD_TYPE]: (node, parent) => {
       const next = findAfter(parent!, node);
 
