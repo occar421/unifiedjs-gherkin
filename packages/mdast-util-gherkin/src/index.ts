@@ -1,5 +1,5 @@
 import type { Extension as FromMarkdownExtension } from "mdast-util-from-markdown";
-import type { Handle, Options as ToMarkdownExtension } from "mdast-util-to-markdown";
+import type { Handle, Join, Options as ToMarkdownExtension } from "mdast-util-to-markdown";
 import gherkinTransform from "./gherkinTransform.ts";
 import { Types } from "./constant.ts";
 import { findAfter } from "unist-util-find-after";
@@ -38,15 +38,15 @@ export function gherkinToMarkdown(_options: {} = {}): ToMarkdownExtension {
     },
   };
 
+  const tagJoin: Join = (left, right) => {
+    if (left.type === Types.GHERKIN_TAG_LINE_TYPE && right.type === "heading") {
+      return 0;
+    }
+    return true;
+  };
+
   return {
     handlers: customHandlers,
-    join: [
-      (left, right) => {
-        if (left.type === Types.GHERKIN_TAG_LINE_TYPE && right.type === "heading") {
-          return 0;
-        }
-        return true;
-      },
-    ],
+    join: [tagJoin],
   };
 }
