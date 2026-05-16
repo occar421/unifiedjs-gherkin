@@ -1,6 +1,7 @@
 import { expect, suite, test } from "vite-plus/test";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { gherkinFromMarkdown } from "../src/index.ts";
+import { readFileSync } from "fs";
 
 suite("Markdown with Gherkin to mdast", () => {
   const getTree = (text: string, _options: {} = {}) =>
@@ -116,6 +117,17 @@ ${"`@important` `@essential`"}
           depth: 3,
         });
       });
+    });
+  });
+
+  suite("Test with fixtures", () => {
+    test("mdgExample.feature.md", () => {
+      const content = readFileSync(
+        import.meta.dirname + "/fixtures/mdgExample.feature.md",
+        "utf-8",
+      );
+      const tree = getTree(content);
+      expect(tree).toMatchSnapshot();
     });
   });
 });

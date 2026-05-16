@@ -1,0 +1,548 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Markdown with Gherkin to mdast > Test with fixtures > mdgExample.feature.md 1`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "type": "gherkinSegmentKeyword",
+          "value": "Feature:",
+        },
+        {
+          "type": "text",
+          "value": "Staying alive",
+        },
+      ],
+      "depth": 1,
+      "position": {
+        "end": {
+          "column": 25,
+          "line": 1,
+          "offset": 24,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 9,
+              "line": 4,
+              "offset": 75,
+            },
+            "start": {
+              "column": 1,
+              "line": 3,
+              "offset": 28,
+            },
+          },
+          "type": "text",
+          "value": "This is about actually staying alive,
+not the ",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 23,
+                  "line": 4,
+                  "offset": 89,
+                },
+                "start": {
+                  "column": 10,
+                  "line": 4,
+                  "offset": 76,
+                },
+              },
+              "type": "text",
+              "value": "Bee Gees song",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 69,
+              "line": 4,
+              "offset": 135,
+            },
+            "start": {
+              "column": 9,
+              "line": 4,
+              "offset": 75,
+            },
+          },
+          "title": null,
+          "type": "link",
+          "url": "https://www.youtube.com/watch?v=I_izvAbhExY",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 70,
+              "line": 4,
+              "offset": 136,
+            },
+            "start": {
+              "column": 69,
+              "line": 4,
+              "offset": 135,
+            },
+          },
+          "type": "text",
+          "value": ".",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 70,
+          "line": 4,
+          "offset": 136,
+        },
+        "start": {
+          "column": 1,
+          "line": 3,
+          "offset": 28,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "type": "gherkinSegmentKeyword",
+          "value": "Rule:",
+        },
+        {
+          "type": "text",
+          "value": "If you don't eat you die",
+        },
+      ],
+      "depth": 2,
+      "position": {
+        "end": {
+          "column": 34,
+          "line": 6,
+          "offset": 173,
+        },
+        "start": {
+          "column": 1,
+          "line": 6,
+          "offset": 140,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "children": [
+        {
+          "alt": "xkcd",
+          "position": {
+            "end": {
+              "column": 51,
+              "line": 8,
+              "offset": 227,
+            },
+            "start": {
+              "column": 1,
+              "line": 8,
+              "offset": 177,
+            },
+          },
+          "title": null,
+          "type": "image",
+          "url": "https://imgs.xkcd.com/comics/lunch_2x.png",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 51,
+          "line": 8,
+          "offset": 227,
+        },
+        "start": {
+          "column": 1,
+          "line": 8,
+          "offset": 177,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "type": "gherkinTag",
+          "value": "@important",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 14,
+              "line": 10,
+              "offset": 244,
+            },
+            "start": {
+              "column": 13,
+              "line": 10,
+              "offset": 243,
+            },
+          },
+          "type": "text",
+          "value": " ",
+        },
+        {
+          "type": "gherkinTag",
+          "value": "@essential",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 26,
+          "line": 10,
+          "offset": 256,
+        },
+        "start": {
+          "column": 1,
+          "line": 10,
+          "offset": 231,
+        },
+      },
+      "type": "paragraph",
+    },
+    {
+      "children": [
+        {
+          "type": "gherkinSegmentKeyword",
+          "value": "Scenario Outline:",
+        },
+        {
+          "type": "text",
+          "value": "eating",
+        },
+      ],
+      "depth": 3,
+      "position": {
+        "end": {
+          "column": 29,
+          "line": 11,
+          "offset": 286,
+        },
+        "start": {
+          "column": 1,
+          "line": 11,
+          "offset": 258,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "children": [
+        {
+          "checked": null,
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "gherkinStepKeyword",
+                  "value": "Given",
+                },
+                {
+                  "type": "text",
+                  "value": "there are ",
+                },
+                {
+                  "ident": "start",
+                  "prefix": "<",
+                  "suffix": ">",
+                  "type": "gherkinDelimitedParameter",
+                },
+                {
+                  "position": {
+                    "end": {
+                      "column": 36,
+                      "line": 13,
+                      "offset": 325,
+                    },
+                    "start": {
+                      "column": 26,
+                      "line": 13,
+                      "offset": 315,
+                    },
+                  },
+                  "type": "text",
+                  "value": " cucumbers",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 36,
+                  "line": 13,
+                  "offset": 325,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 13,
+                  "offset": 292,
+                },
+              },
+              "type": "paragraph",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 36,
+              "line": 13,
+              "offset": 325,
+            },
+            "start": {
+              "column": 1,
+              "line": 13,
+              "offset": 290,
+            },
+          },
+          "spread": false,
+          "type": "listItem",
+        },
+        {
+          "checked": null,
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "gherkinStepKeyword",
+                  "value": "When",
+                },
+                {
+                  "type": "text",
+                  "value": "I eat ",
+                },
+                {
+                  "ident": "eat",
+                  "prefix": "<",
+                  "suffix": ">",
+                  "type": "gherkinDelimitedParameter",
+                },
+                {
+                  "position": {
+                    "end": {
+                      "column": 29,
+                      "line": 14,
+                      "offset": 355,
+                    },
+                    "start": {
+                      "column": 19,
+                      "line": 14,
+                      "offset": 345,
+                    },
+                  },
+                  "type": "text",
+                  "value": " cucumbers",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 29,
+                  "line": 14,
+                  "offset": 355,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 14,
+                  "offset": 329,
+                },
+              },
+              "type": "paragraph",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 29,
+              "line": 14,
+              "offset": 355,
+            },
+            "start": {
+              "column": 1,
+              "line": 14,
+              "offset": 327,
+            },
+          },
+          "spread": false,
+          "type": "listItem",
+        },
+        {
+          "checked": null,
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "gherkinStepKeyword",
+                  "value": "Then",
+                },
+                {
+                  "type": "text",
+                  "value": "I should have ",
+                },
+                {
+                  "ident": "left",
+                  "prefix": "<",
+                  "suffix": ">",
+                  "type": "gherkinDelimitedParameter",
+                },
+                {
+                  "position": {
+                    "end": {
+                      "column": 38,
+                      "line": 15,
+                      "offset": 394,
+                    },
+                    "start": {
+                      "column": 28,
+                      "line": 15,
+                      "offset": 384,
+                    },
+                  },
+                  "type": "text",
+                  "value": " cucumbers",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 38,
+                  "line": 15,
+                  "offset": 394,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 15,
+                  "offset": 359,
+                },
+              },
+              "type": "paragraph",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 38,
+              "line": 15,
+              "offset": 394,
+            },
+            "start": {
+              "column": 1,
+              "line": 15,
+              "offset": 357,
+            },
+          },
+          "spread": false,
+          "type": "listItem",
+        },
+      ],
+      "ordered": false,
+      "position": {
+        "end": {
+          "column": 38,
+          "line": 15,
+          "offset": 394,
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+          "offset": 290,
+        },
+      },
+      "spread": false,
+      "start": null,
+      "type": "list",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 15,
+              "line": 17,
+              "offset": 412,
+            },
+            "start": {
+              "column": 6,
+              "line": 17,
+              "offset": 403,
+            },
+          },
+          "type": "text",
+          "value": "Examples:",
+        },
+      ],
+      "depth": 4,
+      "position": {
+        "end": {
+          "column": 15,
+          "line": 17,
+          "offset": 412,
+        },
+        "start": {
+          "column": 1,
+          "line": 17,
+          "offset": 398,
+        },
+      },
+      "type": "heading",
+    },
+    {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 23,
+              "line": 22,
+              "offset": 510,
+            },
+            "start": {
+              "column": 1,
+              "line": 19,
+              "offset": 416,
+            },
+          },
+          "type": "text",
+          "value": "| start | eat | left |
+| ----- | --- | ---- |
+|    12 |   5 |    7 |
+|    20 |   5 |   15 |",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 23,
+          "line": 22,
+          "offset": 510,
+        },
+        "start": {
+          "column": 1,
+          "line": 19,
+          "offset": 416,
+        },
+      },
+      "type": "paragraph",
+    },
+  ],
+  "position": {
+    "end": {
+      "column": 1,
+      "line": 23,
+      "offset": 512,
+    },
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "type": "root",
+}
+`;
