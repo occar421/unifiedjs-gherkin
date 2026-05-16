@@ -27,6 +27,9 @@ catalogs:
     unified:
       specifier: ^11.0.5
       version: 11.0.5
+    unist-util-find-after:
+      specifier: ^5.0.0
+      version: 5.0.0
     unist-util-find-all-after:
       specifier: ^5.0.0
       version: 5.0.0
@@ -63,6 +66,9 @@ importers:
       mdast-util-to-markdown:
         specifier: 'catalog:'
         version: 2.1.2
+      unist-util-find-after:
+        specifier: 'catalog:'
+        version: 5.0.0
       unist-util-find-all-after:
         specifier: 'catalog:'
         version: 5.0.0
@@ -1135,6 +1141,9 @@ packages:
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
 
+  unist-util-find-after@5.0.0:
+    resolution: {integrity: sha512-amQa0Ep2m6hE2g72AugUItjbuM8X8cGQnFoHk0pGfrFeT9GZhzN5SW8nRsiGKK7Aif4CrACPENkA6P/Lw6fHGQ==}
+
   unist-util-find-all-after@5.0.0:
     resolution: {integrity: sha512-nGmOYvTSdGcI4RvrUNfe0mOsqqbbJOtqCQsppsY9KZjmv3nwM3YRgNBwFPdZ8Y+iv9Z/2PDjR9u6u+uK62XTTg==}
 
@@ -2027,6 +2036,11 @@ snapshots:
       is-plain-obj: 4.1.0
       trough: 2.2.0
       vfile: 6.0.3
+
+  unist-util-find-after@5.0.0:
+    dependencies:
+      '@types/unist': 3.0.3
+      unist-util-is: 6.0.1
 
   unist-util-find-all-after@5.0.0:
     dependencies:

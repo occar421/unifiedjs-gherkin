@@ -23,6 +23,7 @@ catalog:
   unist-util-find-before: ^4.0.1
   unist: ^0.0.1
   "@types/unist": ^3.0.3
+  unist-util-find-after: ^5.0.0
 overrides:
   vite: "catalog:"
   vitest: "catalog:"

@@ -1,6 +1,8 @@
 import type { Extension as FromMarkdownExtension } from "mdast-util-from-markdown";
-import type { Options as ToMarkdownExtension } from "mdast-util-to-markdown";
+import type { Handle, Options as ToMarkdownExtension } from "mdast-util-to-markdown";
 import gherkinTransform from "./gherkinTransform.ts";
+import { Types } from "./constant.ts";
+import { findAfter } from "unist-util-find-after";
 
 export function gherkinFromMarkdown(): FromMarkdownExtension {
   return {
@@ -9,5 +11,19 @@ export function gherkinFromMarkdown(): FromMarkdownExtension {
 }
 
 export function gherkinToMarkdown(_options: {} = {}): ToMarkdownExtension {
-  return {};
+  const customHandlers: Record<string, Handle> = {
+    [Types.GHERKIN_SEGMENT_KEYWORD_TYPE]: (node, parent) => {
+      const next = findAfter(parent!, node);
+
+      if (!next) {
+        return node.value; // e.g. ### Examples:\n
+      }
+
+      return `${node.value} `; // e.g. # Feature: ???
+    },
+  };
+
+  return {
+    handlers: customHandlers,
+  };
 }
