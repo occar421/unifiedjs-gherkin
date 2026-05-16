@@ -1,3 +1,4 @@
+import type { Position } from "unist";
 import type { Transform } from "mdast-util-from-markdown";
 import { visit } from "unist-util-visit";
 import { visitParents } from "unist-util-visit-parents";
@@ -22,7 +23,21 @@ const gherkinTransform: Transform = (tree) => {
             type: "text",
             value: firstChild.value.slice(keyword.length + 1),
           });
-          node.children.unshift({ type: Types.GHERKIN_SEGMENT_KEYWORD_TYPE, value: keyword });
+          const keywordPosition: Position | undefined = firstChild.position && {
+            start: firstChild.position.start,
+            end: {
+              line: firstChild.position.start.line,
+              column: firstChild.position.start.column + keyword.length,
+              offset:
+                firstChild.position.start.offset &&
+                firstChild.position.start.offset + keyword.length,
+            },
+          };
+          node.children.unshift({
+            type: Types.GHERKIN_SEGMENT_KEYWORD_TYPE,
+            value: keyword,
+            position: keywordPosition,
+          });
           break;
         }
       }

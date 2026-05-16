@@ -9,6 +9,9 @@ catalogs:
     '@types/mdast':
       specifier: ^4.0.4
       version: 4.0.4
+    '@types/unist':
+      specifier: ^3.0.3
+      version: 3.0.3
     mdast:
       specifier: ^3.0.0
       version: 3.0.0
@@ -79,6 +82,9 @@ importers:
       '@types/node':
         specifier: ^25.6.2
         version: 25.8.0
+      '@types/unist':
+        specifier: 'catalog:'
+        version: 3.0.3
       '@typescript/native-preview':
         specifier: 7.0.0-dev.20260509.2
         version: 7.0.0-dev.20260509.2
