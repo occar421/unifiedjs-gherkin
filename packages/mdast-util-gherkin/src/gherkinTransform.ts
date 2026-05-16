@@ -49,6 +49,7 @@ const gherkinTransform: Transform = (tree) => {
             value: textValue,
             position: textPosition,
           });
+
           const keywordPosition: Position | undefined = firstChild.position && {
             start: firstChild.position.start,
             end: {
@@ -121,6 +122,7 @@ const gherkinTransform: Transform = (tree) => {
               type: "text",
               value: textNode.value.slice(keyword.length + 1),
             });
+
             const keywordPosition: Position | undefined = textNode.position && {
               start: textNode.position.start,
               end: {
