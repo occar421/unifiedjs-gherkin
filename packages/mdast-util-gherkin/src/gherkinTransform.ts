@@ -93,6 +93,7 @@ const gherkinTransform: Transform = (tree) => {
         paragraph.children[i] = {
           type: Types.GHERKIN_TAG_TYPE,
           value: child.value,
+          position: child.position,
         };
       }
     }

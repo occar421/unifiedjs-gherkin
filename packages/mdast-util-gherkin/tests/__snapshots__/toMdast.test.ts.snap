@@ -226,6 +226,18 @@ not the ",
     {
       "children": [
         {
+          "position": {
+            "end": {
+              "column": 13,
+              "line": 10,
+              "offset": 234,
+            },
+            "start": {
+              "column": 1,
+              "line": 10,
+              "offset": 222,
+            },
+          },
           "type": "gherkinTag",
           "value": "@important",
         },
@@ -246,6 +258,18 @@ not the ",
           "value": " ",
         },
         {
+          "position": {
+            "end": {
+              "column": 26,
+              "line": 10,
+              "offset": 247,
+            },
+            "start": {
+              "column": 14,
+              "line": 10,
+              "offset": 235,
+            },
+          },
           "type": "gherkinTag",
           "value": "@essential",
         },
