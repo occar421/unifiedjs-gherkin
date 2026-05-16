@@ -13,6 +13,10 @@ const SCENARIO_OUTLINE_KEYWORD = "Scenario Outline:";
 const EXAMPLE_KEYWORD = "Example:";
 
 const GIVEN_KEYWORD = "Given";
+const WHEN_KEYWORD = "When";
+const THEN_KEYWORD = "Then";
+const AND_KEYWORD = "And";
+const BUT_KEYWORD = "But";
 
 export interface GherkinKeyword extends Literal {
   type: typeof GHERKIN_KEYWORD_TYPE;
@@ -73,7 +77,13 @@ const gherkinTransform: Transform = (tree) => {
 
       if (firstChild.children[0].type === "text") {
         const textNode = firstChild.children[0];
-        for (const keyword of [GIVEN_KEYWORD]) {
+        for (const keyword of [
+          GIVEN_KEYWORD,
+          WHEN_KEYWORD,
+          THEN_KEYWORD,
+          AND_KEYWORD,
+          BUT_KEYWORD,
+        ]) {
           if (textNode.value.startsWith(`${keyword} `)) {
             firstChild.children.shift();
             firstChild.children.unshift({
