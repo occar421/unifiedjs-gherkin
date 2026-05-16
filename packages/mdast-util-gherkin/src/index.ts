@@ -21,6 +21,12 @@ export function gherkinToMarkdown(_options: {} = {}): ToMarkdownExtension {
 
       return `${node.value} `; // e.g. # Feature: ???
     },
+    [Types.GHERKIN_STEP_KEYWORD_TYPE]: (node) => {
+      return `${node.value} `;
+    },
+    [Types.GHERKIN_DELIMITED_PARAMETER_TYPE]: (node) => {
+      return `<${node.ident}>`;
+    },
   };
 
   return {

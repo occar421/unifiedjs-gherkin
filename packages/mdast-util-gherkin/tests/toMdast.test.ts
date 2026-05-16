@@ -82,7 +82,7 @@ suite("Markdown with Gherkin to mdast", () => {
 
     suite.each(["Given", "When", "Then", "And", "But"])("%s", (keyword) => {
       test.each(["*", "-"])(
-        `"${keyword}:" is parsed as Gherkin step keyword in list item "%s"`,
+        `"${keyword} " is parsed as Gherkin step keyword in list item "%s"`,
         (bulletSign) => {
           const tree = getTree(`${bulletSign} ${keyword} there are <start> cucumbers`);
 

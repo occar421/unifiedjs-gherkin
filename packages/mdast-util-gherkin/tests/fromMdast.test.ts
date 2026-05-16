@@ -5,7 +5,7 @@ import type { Nodes } from "mdast";
 
 suite("Markdown with Gherkin to mdast", () => {
   const markdownOfTree = (nodes: Nodes, _options: {} = {}) =>
-    toMarkdown(nodes, { extensions: [gherkinToMarkdown()] });
+    toMarkdown(nodes, { bullet: "*", extensions: [gherkinToMarkdown()] });
 
   suite("keyword", () => {
     suite.each([
@@ -38,7 +38,7 @@ suite("Markdown with Gherkin to mdast", () => {
 
   suite.each(["Examples", "Scenarios"])("%s with Table", (keyword) => {
     test.each([1, 2, 3, 4, 5, 6] as const)(
-      `"${keyword}:" is parsed as Gherkin segment keyword in h%i`,
+      `Can serialize it to "${keyword}:" from Gherkin segment keyword in h%i`,
       (level) => {
         const str = markdownOfTree({
           type: "heading",
@@ -48,5 +48,36 @@ suite("Markdown with Gherkin to mdast", () => {
         expect(str).toMatch(`${"#".repeat(level)} ${keyword}:`);
       },
     );
+  });
+
+  suite.each(["Given", "When", "Then", "And", "But"])("%s", (keyword) => {
+    test(`Can serialize it to "${keyword} " is parsed as Gherkin step keyword in list item`, () => {
+      const str = markdownOfTree({
+        type: "list",
+        ordered: false,
+        spread: false,
+        children: [
+          {
+            type: "listItem",
+            spread: false,
+            children: [
+              {
+                type: "paragraph",
+                children: [
+                  { type: "gherkinStepKeyword", value: keyword },
+                  { type: "text", value: "there are " },
+                  {
+                    type: "gherkinDelimitedParameter",
+                    ident: "start",
+                  },
+                  { type: "text", value: " cucumbers" },
+                ],
+              },
+            ],
+          },
+        ],
+      });
+      expect(str).toMatch(`* ${keyword} there are <start> cucumbers`);
+    });
   });
 });
