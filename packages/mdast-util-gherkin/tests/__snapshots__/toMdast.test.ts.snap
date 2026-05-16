@@ -346,6 +346,18 @@ not the ",
             {
               "children": [
                 {
+                  "position": {
+                    "end": {
+                      "column": 8,
+                      "line": 14,
+                      "offset": 286,
+                    },
+                    "start": {
+                      "column": 3,
+                      "line": 14,
+                      "offset": 281,
+                    },
+                  },
                   "type": "gherkinStepKeyword",
                   "value": "Given",
                 },
@@ -410,6 +422,18 @@ not the ",
             {
               "children": [
                 {
+                  "position": {
+                    "end": {
+                      "column": 7,
+                      "line": 15,
+                      "offset": 321,
+                    },
+                    "start": {
+                      "column": 3,
+                      "line": 15,
+                      "offset": 317,
+                    },
+                  },
                   "type": "gherkinStepKeyword",
                   "value": "When",
                 },
@@ -474,6 +498,18 @@ not the ",
             {
               "children": [
                 {
+                  "position": {
+                    "end": {
+                      "column": 7,
+                      "line": 16,
+                      "offset": 350,
+                    },
+                    "start": {
+                      "column": 3,
+                      "line": 16,
+                      "offset": 346,
+                    },
+                  },
                   "type": "gherkinStepKeyword",
                   "value": "Then",
                 },
