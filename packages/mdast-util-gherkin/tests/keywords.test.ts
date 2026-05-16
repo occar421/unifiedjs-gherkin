@@ -56,5 +56,33 @@ suite("gherkin", () => {
         );
       },
     );
+
+    suite("Given", () => {
+      test(`"Given:" is parsed as GherkinKeyword in list item"`, () => {
+        const tree = getTree(`* Given there are 3 cucumbers`);
+
+        expect(tree.children).toHaveLength(1);
+        expect(tree.children[0]).toMatchObject({
+          type: "list",
+          ordered: false,
+          spread: false,
+          children: [
+            {
+              type: "listItem",
+              spread: false,
+              children: [
+                {
+                  type: "paragraph",
+                  children: [
+                    { type: "gherkinKeyword", value: "Given" },
+                    { type: "text", value: "there are 3 cucumbers" },
+                  ],
+                },
+              ],
+            },
+          ],
+        });
+      });
+    });
   });
 });
