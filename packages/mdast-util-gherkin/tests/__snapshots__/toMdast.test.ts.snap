@@ -22,6 +22,18 @@ exports[`Markdown with Gherkin to mdast > Test with fixtures > mdgExample.featur
           "value": "Feature:",
         },
         {
+          "position": {
+            "end": {
+              "column": 25,
+              "line": 1,
+              "offset": 24,
+            },
+            "start": {
+              "column": 12,
+              "line": 1,
+              "offset": 11,
+            },
+          },
           "type": "text",
           "value": "Staying alive",
         },
@@ -145,6 +157,18 @@ not the ",
           "value": "Rule:",
         },
         {
+          "position": {
+            "end": {
+              "column": 34,
+              "line": 6,
+              "offset": 168,
+            },
+            "start": {
+              "column": 10,
+              "line": 6,
+              "offset": 144,
+            },
+          },
           "type": "text",
           "value": "If you don't eat you die",
         },
@@ -259,6 +283,18 @@ not the ",
           "value": "Scenario Outline:",
         },
         {
+          "position": {
+            "end": {
+              "column": 29,
+              "line": 12,
+              "offset": 277,
+            },
+            "start": {
+              "column": 23,
+              "line": 12,
+              "offset": 271,
+            },
+          },
           "type": "text",
           "value": "eating",
         },

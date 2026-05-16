@@ -19,9 +19,20 @@ const gherkinTransform: Transform = (tree) => {
         // prevent text directive `:color[]{}`
         if (firstChild.value.startsWith(`${keyword} `)) {
           node.children.shift(); // === firstChild
+          const textPosition: Position | undefined = firstChild.position && {
+            start: {
+              line: firstChild.position.start.line,
+              column: firstChild.position.start.column + keyword.length + 1,
+              offset:
+                firstChild.position.start.offset &&
+                firstChild.position.start.offset + keyword.length + 1,
+            },
+            end: firstChild.position.end,
+          };
           node.children.unshift({
             type: "text",
             value: firstChild.value.slice(keyword.length + 1),
+            position: textPosition,
           });
           const keywordPosition: Position | undefined = firstChild.position && {
             start: firstChild.position.start,
