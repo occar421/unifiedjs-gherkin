@@ -15,8 +15,8 @@ const gherkinTransform: Transform = (tree) => {
     const firstChild = node.children[0];
     if (firstChild.type === "text") {
       for (const keyword of Object.values(SegmentKeywords)) {
+        // prevent text directive `:color[]{}`
         if (firstChild.value.startsWith(`${keyword} `)) {
-          // prevent text directive `:color[]{}`
           node.children.shift(); // === firstChild
           node.children.unshift({
             type: "text",
