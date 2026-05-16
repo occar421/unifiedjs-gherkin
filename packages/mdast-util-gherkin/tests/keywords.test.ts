@@ -17,6 +17,23 @@ suite("gherkin", () => {
           children: [{ type: "text", value: "Hello" }],
         });
       });
+
+      test("Normal list item should pass through", () => {
+        const tree = getTree(`* Hello`);
+        expect(tree.children).toHaveLength(1);
+        expect(tree.children[0]).toMatchObject({
+          type: "list",
+          ordered: false,
+          spread: false,
+          children: [
+            {
+              type: "listItem",
+              spread: false,
+              children: [{ type: "paragraph", children: [{ type: "text", value: "Hello" }] }],
+            },
+          ],
+        });
+      });
     });
 
     suite.each(["Feature", "Background", "Rule", "Scenario", "Scenario Outline", "Example"])(
