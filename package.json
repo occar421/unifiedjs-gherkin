@@ -1,0 +1,14 @@
+{
+  "name": "unifiedjs-gherkin",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "pnpm": "11.1.2",
+    "npm": "please_use_pnpm_instead"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@11.1.2"
+}
