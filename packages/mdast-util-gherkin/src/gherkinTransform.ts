@@ -145,9 +145,7 @@ const gherkinTransform: Transform = (tree) => {
         const index = parent.children.indexOf(sibling);
         parent.children[index] = {
           type: Types.GHERKIN_DELIMITED_PARAMETER_TYPE,
-          prefix: "<",
           ident: sibling.value.slice(1, -1), // "<foo>" -> "foo"
-          suffix: ">",
         };
       }
     }
