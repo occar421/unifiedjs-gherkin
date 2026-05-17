@@ -30,7 +30,6 @@
   "dependencies": {
     "mdast-util-from-markdown": "catalog:",
     "mdast-util-to-markdown": "catalog:",
-    "unist-util-find-after": "catalog:",
     "unist-util-find-all-after": "catalog:",
     "unist-util-find-before": "catalog:",
     "unist-util-visit": "catalog:",
@@ -42,7 +41,6 @@
     "@types/unist": "catalog:",
     "@typescript/native-preview": "7.0.0-dev.20260509.2",
     "bumpp": "^11.1.0",
-    "mdast": "catalog:",
     "typescript": "^6.0.3",
     "vite-plus": "^0.1.20"
   }
