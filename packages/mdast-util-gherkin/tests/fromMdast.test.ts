@@ -64,7 +64,12 @@ suite("Markdown with Gherkin to mdast", () => {
               {
                 type: "paragraph",
                 children: [
-                  { type: "gherkinStepKeyword", value: keyword },
+                  {
+                    type: "text",
+                    value: keyword,
+                    data: { gherkin: { type: "stepKeyword" } },
+                  },
+                  { type: "text", value: " " },
                   { type: "text", value: "there are " },
                   {
                     type: "html",

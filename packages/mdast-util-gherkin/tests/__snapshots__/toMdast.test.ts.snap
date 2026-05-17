@@ -361,6 +361,11 @@ not the ",
             {
               "children": [
                 {
+                  "data": {
+                    "gherkin": {
+                      "type": "stepKeyword",
+                    },
+                  },
                   "position": {
                     "end": {
                       "column": 8,
@@ -373,8 +378,24 @@ not the ",
                       "offset": 281,
                     },
                   },
-                  "type": "gherkinStepKeyword",
+                  "type": "text",
                   "value": "Given",
+                },
+                {
+                  "position": {
+                    "end": {
+                      "column": 9,
+                      "line": 14,
+                      "offset": 287,
+                    },
+                    "start": {
+                      "column": 8,
+                      "line": 14,
+                      "offset": 286,
+                    },
+                  },
+                  "type": "text",
+                  "value": " ",
                 },
                 {
                   "position": {
@@ -467,6 +488,11 @@ not the ",
             {
               "children": [
                 {
+                  "data": {
+                    "gherkin": {
+                      "type": "stepKeyword",
+                    },
+                  },
                   "position": {
                     "end": {
                       "column": 7,
@@ -479,8 +505,24 @@ not the ",
                       "offset": 317,
                     },
                   },
-                  "type": "gherkinStepKeyword",
+                  "type": "text",
                   "value": "When",
+                },
+                {
+                  "position": {
+                    "end": {
+                      "column": 8,
+                      "line": 15,
+                      "offset": 322,
+                    },
+                    "start": {
+                      "column": 7,
+                      "line": 15,
+                      "offset": 321,
+                    },
+                  },
+                  "type": "text",
+                  "value": " ",
                 },
                 {
                   "position": {
@@ -573,6 +615,11 @@ not the ",
             {
               "children": [
                 {
+                  "data": {
+                    "gherkin": {
+                      "type": "stepKeyword",
+                    },
+                  },
                   "position": {
                     "end": {
                       "column": 7,
@@ -585,8 +632,24 @@ not the ",
                       "offset": 346,
                     },
                   },
-                  "type": "gherkinStepKeyword",
+                  "type": "text",
                   "value": "Then",
+                },
+                {
+                  "position": {
+                    "end": {
+                      "column": 8,
+                      "line": 16,
+                      "offset": 351,
+                    },
+                    "start": {
+                      "column": 7,
+                      "line": 16,
+                      "offset": 350,
+                    },
+                  },
+                  "type": "text",
+                  "value": " ",
                 },
                 {
                   "position": {

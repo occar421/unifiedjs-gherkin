@@ -144,19 +144,33 @@ const gherkinTransform: Transform = (tree) => {
               position: textPosition,
             });
 
-            const keywordPosition: Position | undefined = textNode.position && {
-              start: textNode.position.start,
-              end: {
-                line: textNode.position.start.line,
-                column: textNode.position.start.column + keyword.length,
-                offset:
-                  textNode.position.start.offset && textNode.position.start.offset + keyword.length,
-              },
-            };
+            const spacePosition: Position | undefined = textNode.position &&
+              textPosition && {
+                start: {
+                  line: textNode.position.start.line,
+                  column: textNode.position.start.column + keyword.length,
+                  offset:
+                    textNode.position.start.offset &&
+                    textNode.position.start.offset + keyword.length,
+                },
+                end: textPosition.start,
+              };
             firstChild.children.unshift({
-              type: GherkinTypes.STEP_KEYWORD_TYPE,
+              type: "text",
+              value: " ",
+              position: spacePosition,
+            });
+
+            const keywordPosition: Position | undefined = textNode.position &&
+              spacePosition && {
+                start: textNode.position.start,
+                end: spacePosition.start,
+              };
+            firstChild.children.unshift({
+              type: "text",
               value: keyword,
               position: keywordPosition,
+              data: { gherkin: { type: GherkinTypes.STEP_KEYWORD_TYPE } },
             });
             break;
           }
@@ -166,10 +180,11 @@ const gherkinTransform: Transform = (tree) => {
   });
 
   // Delimited Parameter
-  visitParents(tree, GherkinTypes.STEP_KEYWORD_TYPE, (node, ancestors) => {
-    if (ancestors.length === 0) {
+  visitParents(tree, "text", (node, ancestors) => {
+    if (node.data?.gherkin?.type !== GherkinTypes.STEP_KEYWORD_TYPE) {
       return;
     }
+
     const parent = ancestors[ancestors.length - 1];
     if (parent.type !== "paragraph") {
       return;
