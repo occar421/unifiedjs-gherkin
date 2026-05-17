@@ -6,6 +6,11 @@ exports[`Markdown with Gherkin to mdast > Test with fixtures > mdgExample.featur
     {
       "children": [
         {
+          "data": {
+            "gherkin": {
+              "type": "segmentKeyword",
+            },
+          },
           "position": {
             "end": {
               "column": 11,
@@ -18,8 +23,24 @@ exports[`Markdown with Gherkin to mdast > Test with fixtures > mdgExample.featur
               "offset": 2,
             },
           },
-          "type": "gherkinSegmentKeyword",
+          "type": "text",
           "value": "Feature:",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 12,
+              "line": 1,
+              "offset": 11,
+            },
+            "start": {
+              "column": 11,
+              "line": 1,
+              "offset": 10,
+            },
+          },
+          "type": "text",
+          "value": " ",
         },
         {
           "position": {
@@ -141,6 +162,11 @@ not the ",
     {
       "children": [
         {
+          "data": {
+            "gherkin": {
+              "type": "segmentKeyword",
+            },
+          },
           "position": {
             "end": {
               "column": 9,
@@ -153,8 +179,24 @@ not the ",
               "offset": 138,
             },
           },
-          "type": "gherkinSegmentKeyword",
+          "type": "text",
           "value": "Rule:",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 10,
+              "line": 6,
+              "offset": 144,
+            },
+            "start": {
+              "column": 9,
+              "line": 6,
+              "offset": 143,
+            },
+          },
+          "type": "text",
+          "value": " ",
         },
         {
           "position": {
@@ -306,6 +348,11 @@ not the ",
     {
       "children": [
         {
+          "data": {
+            "gherkin": {
+              "type": "segmentKeyword",
+            },
+          },
           "position": {
             "end": {
               "column": 22,
@@ -318,8 +365,24 @@ not the ",
               "offset": 253,
             },
           },
-          "type": "gherkinSegmentKeyword",
+          "type": "text",
           "value": "Scenario Outline:",
+        },
+        {
+          "position": {
+            "end": {
+              "column": 23,
+              "line": 12,
+              "offset": 271,
+            },
+            "start": {
+              "column": 22,
+              "line": 12,
+              "offset": 270,
+            },
+          },
+          "type": "text",
+          "value": " ",
         },
         {
           "position": {
@@ -757,6 +820,11 @@ not the ",
     {
       "children": [
         {
+          "data": {
+            "gherkin": {
+              "type": "segmentKeyword",
+            },
+          },
           "position": {
             "end": {
               "column": 15,
@@ -769,7 +837,7 @@ not the ",
               "offset": 388,
             },
           },
-          "type": "gherkinSegmentKeyword",
+          "type": "text",
           "value": "Examples:",
         },
       ],

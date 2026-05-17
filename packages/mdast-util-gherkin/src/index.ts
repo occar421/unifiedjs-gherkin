@@ -1,7 +1,6 @@
 import type { Extension as FromMarkdownExtension } from "mdast-util-from-markdown";
 import type { Options as ToMarkdownExtension } from "mdast-util-to-markdown";
 import gherkinTransform from "./gherkinTransform.ts";
-import handlers from "./gherkinHandlers.ts";
 import joins from "./gherkinJoins.ts";
 
 export function gherkinFromMarkdown(): FromMarkdownExtension {
@@ -12,7 +11,6 @@ export function gherkinFromMarkdown(): FromMarkdownExtension {
 
 export function gherkinToMarkdown(_options: {} = {}): ToMarkdownExtension {
   return {
-    handlers: handlers,
     join: joins,
   };
 }

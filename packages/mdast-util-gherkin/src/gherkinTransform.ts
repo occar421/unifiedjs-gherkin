@@ -18,13 +18,10 @@ const gherkinTransform: Transform = (tree) => {
       for (const keyword of Object.values(SegmentKeywords)) {
         // e.g. ### Examples:\n
         if (firstChild.value === keyword) {
-          node.children.shift(); // === firstChild
-
-          node.children.unshift({
-            type: GherkinTypes.SEGMENT_KEYWORD_TYPE,
-            value: keyword,
-            position: firstChild.position,
-          });
+          firstChild.data = {
+            ...firstChild.data,
+            gherkin: { type: GherkinTypes.SEGMENT_KEYWORD_TYPE },
+          };
           break;
         }
 
@@ -50,20 +47,33 @@ const gherkinTransform: Transform = (tree) => {
             position: textPosition,
           });
 
-          const keywordPosition: Position | undefined = firstChild.position && {
-            start: firstChild.position.start,
-            end: {
-              line: firstChild.position.start.line,
-              column: firstChild.position.start.column + keyword.length,
-              offset:
-                firstChild.position.start.offset &&
-                firstChild.position.start.offset + keyword.length,
-            },
-          };
+          const spacePosition: Position | undefined = firstChild.position &&
+            textPosition && {
+              start: {
+                line: firstChild.position.start.line,
+                column: firstChild.position.start.column + keyword.length,
+                offset:
+                  firstChild.position.start.offset &&
+                  firstChild.position.start.offset + keyword.length,
+              },
+              end: textPosition.start,
+            };
           node.children.unshift({
-            type: GherkinTypes.SEGMENT_KEYWORD_TYPE,
+            type: "text",
+            value: " ",
+            position: spacePosition,
+          });
+
+          const keywordPosition: Position | undefined = firstChild.position &&
+            spacePosition && {
+              start: firstChild.position.start,
+              end: spacePosition.start,
+            };
+          node.children.unshift({
+            type: "text",
             value: keyword,
             position: keywordPosition,
+            data: { gherkin: { type: GherkinTypes.SEGMENT_KEYWORD_TYPE } },
           });
           break;
         }
@@ -72,7 +82,11 @@ const gherkinTransform: Transform = (tree) => {
   });
 
   // Tags
-  visitParents(tree, GherkinTypes.SEGMENT_KEYWORD_TYPE, (_node, ancestors) => {
+  visitParents(tree, "text", (node, ancestors) => {
+    if (node.data?.gherkin?.type !== GherkinTypes.SEGMENT_KEYWORD_TYPE) {
+      return;
+    }
+
     if (ancestors.length <= 1) {
       return;
     }

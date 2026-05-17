@@ -57,7 +57,8 @@ suite("Markdown with Gherkin to mdast", () => {
             type: "heading",
             depth: level,
             children: [
-              { type: "gherkinSegmentKeyword", value: `${keyword}:` },
+              { type: "text", value: `${keyword}:`, data: { gherkin: { type: "segmentKeyword" } } },
+              { type: "text", value: " " },
               { type: "text", value: "Hello" },
             ],
           });
@@ -74,7 +75,9 @@ suite("Markdown with Gherkin to mdast", () => {
           expect(tree.children[0]).toMatchObject({
             type: "heading",
             depth: level,
-            children: [{ type: "gherkinSegmentKeyword", value: `${keyword}:` }],
+            children: [
+              { type: "text", value: `${keyword}:`, data: { gherkin: { type: "segmentKeyword" } } },
+            ],
           });
         },
       );
