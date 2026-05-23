@@ -4,7 +4,7 @@ import { visit } from "unist-util-visit";
 import { visitParents } from "unist-util-visit-parents";
 import { findAllAfter } from "unist-util-find-all-after";
 import { findBefore } from "unist-util-find-before";
-import { GherkinTypes, SegmentKeywords, StepKeywords } from "./constant.ts";
+import { GherkinTypes, SegmentKeywords, StepKeywords, SyntaxTokens } from "./constant.ts";
 
 const gherkinTransform: Transform = (tree) => {
   // Segment Keyword
@@ -15,7 +15,8 @@ const gherkinTransform: Transform = (tree) => {
 
     const firstChild = node.children[0];
     if (firstChild.type === "text") {
-      for (const keyword of Object.values(SegmentKeywords)) {
+      for (const segmentKeyword of Object.values(SegmentKeywords)) {
+        const keyword = `${segmentKeyword}${SyntaxTokens.COLON}`;
         // e.g. ### Examples:\n
         if (firstChild.value === keyword) {
           firstChild.data = {
@@ -111,7 +112,7 @@ const gherkinTransform: Transform = (tree) => {
     }
   });
 
-  // Tag ine
+  // Tag line
   visit(tree, "paragraph", (node) => {
     const tagsOnly = node.children.every(
       (child) =>

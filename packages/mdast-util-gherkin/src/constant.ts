@@ -6,16 +6,20 @@ export const GherkinTypes = {
   DELIMITED_PARAMETER: "delimitedParameter",
 } as const;
 
+export const SyntaxTokens = {
+  COLON: ":",
+} as const;
+
 export const SegmentKeywords = {
-  FEATURE: "Feature:",
-  RULE: "Rule:",
-  EXAMPLE: "Example:",
-  SCENARIO: "Scenario:",
-  BACKGROUND: "Background:",
-  SCENARIO_OUTLINE: "Scenario Outline:",
-  SCENARIO_TEMPLATE: "Scenario Template:",
-  EXAMPLES: "Examples:",
-  SCENARIOS: "Scenarios:",
+  FEATURE: "Feature",
+  RULE: "Rule",
+  EXAMPLE: "Example",
+  SCENARIO: "Scenario",
+  BACKGROUND: "Background",
+  SCENARIO_OUTLINE: "Scenario Outline",
+  SCENARIO_TEMPLATE: "Scenario Template",
+  EXAMPLES: "Examples",
+  SCENARIOS: "Scenarios",
 } as const;
 
 export const StepKeywords = {
