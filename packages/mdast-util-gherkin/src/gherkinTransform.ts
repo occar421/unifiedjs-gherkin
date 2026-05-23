@@ -31,50 +31,51 @@ const gherkinTransform: Transform = (tree) => {
           node.children.shift(); // === firstChild
 
           const textValue = firstChild.value.slice(keyword.length + 1);
-          const textPosition: Position | undefined = firstChild.position && {
-            start: {
-              line: firstChild.position.start.line,
-              column: firstChild.position.start.column + keyword.length + 1,
+          const keywordPosition: Position | undefined = firstChild.position && {
+            start: firstChild.position.start,
+            end: {
+              ...firstChild.position.start,
+              column: firstChild.position.start.column + keyword.length,
               offset:
                 firstChild.position.start.offset &&
-                firstChild.position.start.offset + keyword.length + 1,
+                firstChild.position.start.offset + keyword.length,
             },
-            end: firstChild.position.end,
           };
-          node.children.unshift({
-            type: "text",
-            value: textValue,
-            position: textPosition,
-          });
 
           const spacePosition: Position | undefined = firstChild.position &&
-            textPosition && {
-              start: {
-                line: firstChild.position.start.line,
-                column: firstChild.position.start.column + keyword.length,
-                offset:
-                  firstChild.position.start.offset &&
-                  firstChild.position.start.offset + keyword.length,
+            keywordPosition && {
+              start: keywordPosition.end,
+              end: {
+                ...keywordPosition.end,
+                column: keywordPosition.end.column + 1,
+                offset: keywordPosition.end.offset && keywordPosition.end.offset + 1,
               },
-              end: textPosition.start,
             };
-          node.children.unshift({
-            type: "text",
-            value: " ",
-            position: spacePosition,
-          });
 
-          const keywordPosition: Position | undefined = firstChild.position &&
+          const textPosition: Position | undefined = firstChild.position &&
             spacePosition && {
-              start: firstChild.position.start,
-              end: spacePosition.start,
+              start: spacePosition.end,
+              end: firstChild.position.end,
             };
-          node.children.unshift({
-            type: "text",
-            value: keyword,
-            position: keywordPosition,
-            data: { gherkin: { type: GherkinTypes.SEGMENT_KEYWORD } },
-          });
+
+          node.children.unshift(
+            {
+              type: "text",
+              value: keyword,
+              position: keywordPosition,
+              data: { gherkin: { type: GherkinTypes.SEGMENT_KEYWORD } },
+            },
+            {
+              type: "text",
+              value: " ",
+              position: spacePosition,
+            },
+            {
+              type: "text",
+              value: textValue,
+              position: textPosition,
+            },
+          );
           break;
         }
       }
@@ -142,50 +143,50 @@ const gherkinTransform: Transform = (tree) => {
           if (textNode.value.startsWith(`${keyword} `)) {
             firstChild.children.shift();
 
-            const textPosition: Position | undefined = textNode.position && {
-              start: {
-                line: textNode.position.start.line,
-                column: textNode.position.start.column + keyword.length + 1,
+            const keywordPosition: Position | undefined = textNode.position && {
+              start: textNode.position.start,
+              end: {
+                ...textNode.position.start,
+                column: textNode.position.start.column + keyword.length,
                 offset:
-                  textNode.position.start.offset &&
-                  textNode.position.start.offset + keyword.length + 1,
+                  textNode.position.start.offset && textNode.position.start.offset + keyword.length,
               },
-              end: textNode.position.end,
             };
-            firstChild.children.unshift({
-              type: "text",
-              value: textNode.value.slice(keyword.length + 1),
-              position: textPosition,
-            });
 
             const spacePosition: Position | undefined = textNode.position &&
-              textPosition && {
-                start: {
-                  line: textNode.position.start.line,
-                  column: textNode.position.start.column + keyword.length,
-                  offset:
-                    textNode.position.start.offset &&
-                    textNode.position.start.offset + keyword.length,
+              keywordPosition && {
+                start: keywordPosition.end,
+                end: {
+                  ...keywordPosition.end,
+                  column: keywordPosition.end.column + 1,
+                  offset: keywordPosition.end.offset && keywordPosition.end.offset + 1,
                 },
-                end: textPosition.start,
               };
-            firstChild.children.unshift({
-              type: "text",
-              value: " ",
-              position: spacePosition,
-            });
 
-            const keywordPosition: Position | undefined = textNode.position &&
+            const textPosition: Position | undefined = textNode.position &&
               spacePosition && {
-                start: textNode.position.start,
-                end: spacePosition.start,
+                start: spacePosition.end,
+                end: textNode.position.end,
               };
-            firstChild.children.unshift({
-              type: "text",
-              value: keyword,
-              position: keywordPosition,
-              data: { gherkin: { type: GherkinTypes.STEP_KEYWORD } },
-            });
+
+            firstChild.children.unshift(
+              {
+                type: "text",
+                value: keyword,
+                position: keywordPosition,
+                data: { gherkin: { type: GherkinTypes.STEP_KEYWORD } },
+              },
+              {
+                type: "text",
+                value: " ",
+                position: spacePosition,
+              },
+              {
+                type: "text",
+                value: textNode.value.slice(keyword.length + 1),
+                position: textPosition,
+              },
+            );
             break;
           }
         }
