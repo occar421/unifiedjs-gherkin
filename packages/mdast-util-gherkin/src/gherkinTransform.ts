@@ -15,7 +15,7 @@ const gherkinTransform: Transform = (tree) => {
 
     const firstChild = node.children[0];
     if (firstChild.type === "text") {
-      for (const segmentKeyword of Object.values(SegmentKeywords)) {
+      for (const segmentKeyword of Object.values(SegmentKeywords).flat()) {
         const keyword = `${segmentKeyword}${SyntaxTokens.COLON}`;
         // e.g. ### Examples:\n
         if (firstChild.value === keyword) {
