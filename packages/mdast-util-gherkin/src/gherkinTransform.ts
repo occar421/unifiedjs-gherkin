@@ -19,10 +19,39 @@ const gherkinTransform: Transform = (tree) => {
         const keyword = `${segmentKeyword}${SyntaxTokens.COLON}`;
         // e.g. ### Examples:\n
         if (firstChild.value === keyword) {
-          firstChild.data = {
-            ...firstChild.data,
-            gherkin: { type: GherkinTypes.SEGMENT_KEYWORD },
+          node.children.shift();
+
+          const segmentKeywordPosition: Position | undefined = firstChild.position && {
+            start: firstChild.position.start,
+            end: {
+              ...firstChild.position.start,
+              column: firstChild.position.start.column + segmentKeyword.length,
+              offset:
+                firstChild.position.start.offset &&
+                firstChild.position.start.offset + segmentKeyword.length,
+            },
           };
+
+          const delimiterPosition: Position | undefined = firstChild.position &&
+            segmentKeywordPosition && {
+              start: segmentKeywordPosition.end,
+              end: firstChild.position.end,
+            };
+
+          node.children.unshift(
+            {
+              type: "text",
+              value: segmentKeyword,
+              position: segmentKeywordPosition,
+              data: { gherkin: { type: GherkinTypes.SEGMENT_KEYWORD } },
+            },
+            {
+              type: "text",
+              value: SyntaxTokens.COLON,
+              position: delimiterPosition,
+              data: { gherkin: { type: GherkinTypes.SEGMENT_DELIMITER } },
+            },
+          );
           break;
         }
 
@@ -32,24 +61,37 @@ const gherkinTransform: Transform = (tree) => {
           node.children.shift(); // === firstChild
 
           const textValue = firstChild.value.slice(keyword.length + 1);
-          const keywordPosition: Position | undefined = firstChild.position && {
+
+          const segmentKeywordPosition: Position | undefined = firstChild.position && {
             start: firstChild.position.start,
             end: {
               ...firstChild.position.start,
-              column: firstChild.position.start.column + keyword.length,
+              column: firstChild.position.start.column + segmentKeyword.length,
               offset:
                 firstChild.position.start.offset &&
-                firstChild.position.start.offset + keyword.length,
+                firstChild.position.start.offset + segmentKeyword.length,
             },
           };
 
-          const spacePosition: Position | undefined = firstChild.position &&
-            keywordPosition && {
-              start: keywordPosition.end,
+          const delimiterPosition: Position | undefined = firstChild.position &&
+            segmentKeywordPosition && {
+              start: segmentKeywordPosition.end,
               end: {
-                ...keywordPosition.end,
-                column: keywordPosition.end.column + 1,
-                offset: keywordPosition.end.offset && keywordPosition.end.offset + 1,
+                ...segmentKeywordPosition.end,
+                column: segmentKeywordPosition.end.column + SyntaxTokens.COLON.length,
+                offset:
+                  segmentKeywordPosition.end.offset &&
+                  segmentKeywordPosition.end.offset + SyntaxTokens.COLON.length,
+              },
+            };
+
+          const spacePosition: Position | undefined = firstChild.position &&
+            delimiterPosition && {
+              start: delimiterPosition.end,
+              end: {
+                ...delimiterPosition.end,
+                column: delimiterPosition.end.column + 1,
+                offset: delimiterPosition.end.offset && delimiterPosition.end.offset + 1,
               },
             };
 
@@ -62,9 +104,15 @@ const gherkinTransform: Transform = (tree) => {
           node.children.unshift(
             {
               type: "text",
-              value: keyword,
-              position: keywordPosition,
+              value: segmentKeyword,
+              position: segmentKeywordPosition,
               data: { gherkin: { type: GherkinTypes.SEGMENT_KEYWORD } },
+            },
+            {
+              type: "text",
+              value: SyntaxTokens.COLON,
+              position: delimiterPosition,
+              data: { gherkin: { type: GherkinTypes.SEGMENT_DELIMITER } },
             },
             {
               type: "text",

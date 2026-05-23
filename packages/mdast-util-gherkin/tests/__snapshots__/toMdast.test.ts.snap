@@ -13,9 +13,9 @@ exports[`Markdown with Gherkin to mdast > Test with fixtures > mdgExample.featur
           },
           "position": {
             "end": {
-              "column": 11,
+              "column": 10,
               "line": 1,
-              "offset": 10,
+              "offset": 9,
             },
             "start": {
               "column": 3,
@@ -24,7 +24,28 @@ exports[`Markdown with Gherkin to mdast > Test with fixtures > mdgExample.featur
             },
           },
           "type": "text",
-          "value": "Feature:",
+          "value": "Feature",
+        },
+        {
+          "data": {
+            "gherkin": {
+              "type": "segmentDelimiter",
+            },
+          },
+          "position": {
+            "end": {
+              "column": 11,
+              "line": 1,
+              "offset": 10,
+            },
+            "start": {
+              "column": 10,
+              "line": 1,
+              "offset": 9,
+            },
+          },
+          "type": "text",
+          "value": ":",
         },
         {
           "position": {
@@ -169,9 +190,9 @@ not the ",
           },
           "position": {
             "end": {
-              "column": 9,
+              "column": 8,
               "line": 6,
-              "offset": 143,
+              "offset": 142,
             },
             "start": {
               "column": 4,
@@ -180,7 +201,28 @@ not the ",
             },
           },
           "type": "text",
-          "value": "Rule:",
+          "value": "Rule",
+        },
+        {
+          "data": {
+            "gherkin": {
+              "type": "segmentDelimiter",
+            },
+          },
+          "position": {
+            "end": {
+              "column": 9,
+              "line": 6,
+              "offset": 143,
+            },
+            "start": {
+              "column": 8,
+              "line": 6,
+              "offset": 142,
+            },
+          },
+          "type": "text",
+          "value": ":",
         },
         {
           "position": {
@@ -355,9 +397,9 @@ not the ",
           },
           "position": {
             "end": {
-              "column": 22,
+              "column": 21,
               "line": 11,
-              "offset": 269,
+              "offset": 268,
             },
             "start": {
               "column": 5,
@@ -366,7 +408,28 @@ not the ",
             },
           },
           "type": "text",
-          "value": "Scenario Outline:",
+          "value": "Scenario Outline",
+        },
+        {
+          "data": {
+            "gherkin": {
+              "type": "segmentDelimiter",
+            },
+          },
+          "position": {
+            "end": {
+              "column": 22,
+              "line": 11,
+              "offset": 269,
+            },
+            "start": {
+              "column": 21,
+              "line": 11,
+              "offset": 268,
+            },
+          },
+          "type": "text",
+          "value": ":",
         },
         {
           "position": {
@@ -827,9 +890,9 @@ not the ",
           },
           "position": {
             "end": {
-              "column": 15,
+              "column": 14,
               "line": 17,
-              "offset": 396,
+              "offset": 395,
             },
             "start": {
               "column": 6,
@@ -838,7 +901,28 @@ not the ",
             },
           },
           "type": "text",
-          "value": "Examples:",
+          "value": "Examples",
+        },
+        {
+          "data": {
+            "gherkin": {
+              "type": "segmentDelimiter",
+            },
+          },
+          "position": {
+            "end": {
+              "column": 15,
+              "line": 17,
+              "offset": 396,
+            },
+            "start": {
+              "column": 14,
+              "line": 17,
+              "offset": 395,
+            },
+          },
+          "type": "text",
+          "value": ":",
         },
       ],
       "depth": 4,

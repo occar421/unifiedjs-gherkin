@@ -26,7 +26,8 @@ suite("Markdown with Gherkin to mdast", () => {
             type: "heading",
             depth: level,
             children: [
-              { type: "text", value: `${keyword}:`, data: { gherkin: { type: "segmentKeyword" } } },
+              { type: "text", value: `${keyword}`, data: { gherkin: { type: "segmentKeyword" } } },
+              { type: "text", value: `:`, data: { gherkin: { type: "segmentDelimiter" } } },
               { type: "text", value: " " },
               { type: "text", value: "Hello" },
             ],
@@ -45,7 +46,8 @@ suite("Markdown with Gherkin to mdast", () => {
           type: "heading",
           depth: level,
           children: [
-            { type: "text", value: `${keyword}:`, data: { gherkin: { type: "segmentKeyword" } } },
+            { type: "text", value: `${keyword}`, data: { gherkin: { type: "segmentKeyword" } } },
+            { type: "text", value: `:`, data: { gherkin: { type: "segmentDelimiter" } } },
           ],
         });
         expect(str).toMatch(`${"#".repeat(level)} ${keyword}:`);
