@@ -188,7 +188,7 @@ const gherkinTransform: Transform = (tree) => {
 
       if (firstChild.children[0].type === "text") {
         const textNode = firstChild.children[0];
-        for (const keyword of Object.values(StepKeywords)) {
+        for (const keyword of Object.values(StepKeywords).flat()) {
           if (textNode.value.startsWith(`${keyword} `)) {
             firstChild.children.shift();
 

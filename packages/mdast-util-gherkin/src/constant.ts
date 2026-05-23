@@ -24,9 +24,9 @@ export const SegmentKeywords = {
 } as const;
 
 export const StepKeywords = {
-  GIVEN: "Given",
-  WHEN: "When",
-  THEN: "Then",
-  AND: "And",
-  BUT: "But",
+  GIVEN: ["Given"],
+  WHEN: ["When"],
+  THEN: ["Then"],
+  AND: ["And"],
+  BUT: ["But"],
 } as const;
