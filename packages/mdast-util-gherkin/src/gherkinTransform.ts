@@ -20,7 +20,7 @@ const gherkinTransform: Transform = (tree) => {
         if (firstChild.value === keyword) {
           firstChild.data = {
             ...firstChild.data,
-            gherkin: { type: GherkinTypes.SEGMENT_KEYWORD_TYPE },
+            gherkin: { type: GherkinTypes.SEGMENT_KEYWORD },
           };
           break;
         }
@@ -73,7 +73,7 @@ const gherkinTransform: Transform = (tree) => {
             type: "text",
             value: keyword,
             position: keywordPosition,
-            data: { gherkin: { type: GherkinTypes.SEGMENT_KEYWORD_TYPE } },
+            data: { gherkin: { type: GherkinTypes.SEGMENT_KEYWORD } },
           });
           break;
         }
@@ -83,7 +83,7 @@ const gherkinTransform: Transform = (tree) => {
 
   // Tags
   visitParents(tree, "text", (node, ancestors) => {
-    if (node.data?.gherkin?.type !== GherkinTypes.SEGMENT_KEYWORD_TYPE) {
+    if (node.data?.gherkin?.type !== GherkinTypes.SEGMENT_KEYWORD) {
       return;
     }
 
@@ -105,7 +105,7 @@ const gherkinTransform: Transform = (tree) => {
     for (let i = 0; i < paragraph.children.length; i++) {
       const child = paragraph.children[i];
       if (child.type === "inlineCode" && child.value.startsWith("@")) {
-        child.data = { ...child.data, gherkin: { type: GherkinTypes.TAG_TYPE } };
+        child.data = { ...child.data, gherkin: { type: GherkinTypes.TAG } };
       }
     }
   });
@@ -114,14 +114,14 @@ const gherkinTransform: Transform = (tree) => {
   visit(tree, "paragraph", (node) => {
     const tagsOnly = node.children.every(
       (child) =>
-        child.data?.gherkin?.type === GherkinTypes.TAG_TYPE ||
+        child.data?.gherkin?.type === GherkinTypes.TAG ||
         (child.type === "text" && child.value.trim() === ""),
     );
     if (!tagsOnly) {
       return;
     }
 
-    node.data = { ...node.data, gherkin: { type: GherkinTypes.TAG_LINE_TYPE } };
+    node.data = { ...node.data, gherkin: { type: GherkinTypes.TAG_LINE } };
   });
 
   // Step Keyword
@@ -184,7 +184,7 @@ const gherkinTransform: Transform = (tree) => {
               type: "text",
               value: keyword,
               position: keywordPosition,
-              data: { gherkin: { type: GherkinTypes.STEP_KEYWORD_TYPE } },
+              data: { gherkin: { type: GherkinTypes.STEP_KEYWORD } },
             });
             break;
           }
@@ -195,7 +195,7 @@ const gherkinTransform: Transform = (tree) => {
 
   // Delimited Parameter
   visitParents(tree, "text", (node, ancestors) => {
-    if (node.data?.gherkin?.type !== GherkinTypes.STEP_KEYWORD_TYPE) {
+    if (node.data?.gherkin?.type !== GherkinTypes.STEP_KEYWORD) {
       return;
     }
 
@@ -211,7 +211,7 @@ const gherkinTransform: Transform = (tree) => {
         sibling.data = {
           ...sibling.data,
           gherkin: {
-            type: GherkinTypes.DELIMITED_PARAMETER_TYPE,
+            type: GherkinTypes.DELIMITED_PARAMETER,
             ident: sibling.value.slice(1, -1), // "<foo>" -> "foo"
           },
         };

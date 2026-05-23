@@ -1,27 +1,27 @@
 export const GherkinTypes = {
-  TAG_TYPE: "tag",
-  TAG_LINE_TYPE: "tagLine",
-  SEGMENT_KEYWORD_TYPE: "segmentKeyword",
-  STEP_KEYWORD_TYPE: "stepKeyword",
-  DELIMITED_PARAMETER_TYPE: "delimitedParameter",
+  TAG: "tag",
+  TAG_LINE: "tagLine",
+  SEGMENT_KEYWORD: "segmentKeyword",
+  STEP_KEYWORD: "stepKeyword",
+  DELIMITED_PARAMETER: "delimitedParameter",
 } as const;
 
 export const SegmentKeywords = {
-  FEATURE_KEYWORD: "Feature:",
-  RULE_KEYWORD: "Rule:",
-  EXAMPLE_KEYWORD: "Example:",
-  SCENARIO_KEYWORD: "Scenario:",
-  BACKGROUND_KEYWORD: "Background:",
-  SCENARIO_OUTLINE_KEYWORD: "Scenario Outline:",
-  SCENARIO_TEMPLATE_KEYWORD: "Scenario Template:",
-  EXAMPLES_KEYWORD: "Examples:",
-  SCENARIOS_KEYWORD: "Scenarios:",
+  FEATURE: "Feature:",
+  RULE: "Rule:",
+  EXAMPLE: "Example:",
+  SCENARIO: "Scenario:",
+  BACKGROUND: "Background:",
+  SCENARIO_OUTLINE: "Scenario Outline:",
+  SCENARIO_TEMPLATE: "Scenario Template:",
+  EXAMPLES: "Examples:",
+  SCENARIOS: "Scenarios:",
 } as const;
 
 export const StepKeywords = {
-  GIVEN_KEYWORD: "Given",
-  WHEN_KEYWORD: "When",
-  THEN_KEYWORD: "Then",
-  AND_KEYWORD: "And",
-  BUT_KEYWORD: "But",
+  GIVEN: "Given",
+  WHEN: "When",
+  THEN: "Then",
+  AND: "And",
+  BUT: "But",
 } as const;
