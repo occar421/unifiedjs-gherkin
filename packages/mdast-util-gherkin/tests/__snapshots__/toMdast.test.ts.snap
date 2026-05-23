@@ -85,6 +85,11 @@ exports[`Markdown with Gherkin to mdast > Test with fixtures > mdgExample.featur
           "value": "Staying alive",
         },
       ],
+      "data": {
+        "gherkin": {
+          "type": "segmentLine",
+        },
+      },
       "depth": 1,
       "position": {
         "end": {
@@ -267,6 +272,11 @@ not the ",
           "value": "If you don't eat you die",
         },
       ],
+      "data": {
+        "gherkin": {
+          "type": "segmentLine",
+        },
+      },
       "depth": 2,
       "position": {
         "end": {
@@ -484,6 +494,11 @@ not the ",
           "value": "eating",
         },
       ],
+      "data": {
+        "gherkin": {
+          "type": "segmentLine",
+        },
+      },
       "depth": 3,
       "position": {
         "end": {
@@ -960,6 +975,11 @@ not the ",
           "value": ":",
         },
       ],
+      "data": {
+        "gherkin": {
+          "type": "segmentLine",
+        },
+      },
       "depth": 4,
       "position": {
         "end": {

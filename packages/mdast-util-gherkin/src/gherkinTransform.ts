@@ -38,6 +38,7 @@ const gherkinTransform: Transform = (tree) => {
               end: firstChild.position.end,
             };
 
+          node.data = { ...node.data, gherkin: { type: GherkinTypes.SEGMENT_LINE } };
           node.children.unshift(
             {
               type: "text",
@@ -104,6 +105,7 @@ const gherkinTransform: Transform = (tree) => {
               end: firstChild.position.end,
             };
 
+          node.data = { ...node.data, gherkin: { type: GherkinTypes.SEGMENT_LINE } };
           node.children.unshift(
             {
               type: "text",
@@ -136,19 +138,15 @@ const gherkinTransform: Transform = (tree) => {
   });
 
   // Tags
-  visitParents(tree, "text", (node, ancestors) => {
-    if (node.data?.gherkin?.type !== GherkinTypes.SEGMENT_KEYWORD) {
+  visitParents(tree, "heading", (heading, ancestors) => {
+    if (heading.data?.gherkin?.type !== GherkinTypes.SEGMENT_LINE) {
       return;
     }
 
-    if (ancestors.length <= 1) {
+    if (ancestors.length === 0) {
       return;
     }
-    const heading = ancestors[ancestors.length - 1];
-    if (heading.type !== "heading") {
-      return;
-    }
-    const parent = ancestors[ancestors.length - 2];
+    const parent = ancestors[ancestors.length - 1];
 
     const before = findBefore(parent, heading);
     if (!before || before.type !== "paragraph") {
@@ -156,28 +154,22 @@ const gherkinTransform: Transform = (tree) => {
     }
     const paragraph = before;
 
-    for (let i = 0; i < paragraph.children.length; i++) {
-      const child = paragraph.children[i];
-      if (child.type === "inlineCode" && child.value.startsWith("@")) {
-        child.data = { ...child.data, gherkin: { type: GherkinTypes.TAG } };
-      }
-    }
-  });
-
-  // Tag line
-  visit(tree, "paragraph", (node) => {
-    const tagsOnly = node.children.every(
+    const isTagLine = paragraph.children.every(
       (child) =>
-        child.data?.gherkin?.type === GherkinTypes.TAG ||
+        (child.type === "inlineCode" && child.value.startsWith("@")) ||
         (child.type === "text" && child.value.trim() === ""),
     );
-    if (!tagsOnly) {
+
+    if (!isTagLine) {
       return;
     }
 
-    node.data = { ...node.data, gherkin: { type: GherkinTypes.TAG_LINE } };
-    for (const child of node.children) {
-      if (child.type === "text" && child.value.trim() === "") {
+    paragraph.data = { ...paragraph.data, gherkin: { type: GherkinTypes.TAG_LINE } };
+
+    for (const child of paragraph.children) {
+      if (child.type === "inlineCode" && child.value.startsWith("@")) {
+        child.data = { ...child.data, gherkin: { type: GherkinTypes.TAG } };
+      } else if (child.type === "text" && child.value.trim() === "") {
         child.data = { ...child.data, gherkin: { type: GherkinTypes.SEPARATOR } };
       }
     }

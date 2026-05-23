@@ -31,6 +31,7 @@ suite("Markdown with Gherkin to mdast", () => {
               { type: "text", value: " " },
               { type: "text", value: "Hello" },
             ],
+            data: { gherkin: { type: "segmentLine" } },
           });
           expect(str).toMatch(`${"#".repeat(level)} ${keyword}: Hello`);
         },
@@ -49,6 +50,7 @@ suite("Markdown with Gherkin to mdast", () => {
             { type: "text", value: `${keyword}`, data: { gherkin: { type: "segmentKeyword" } } },
             { type: "text", value: `:`, data: { gherkin: { type: "segmentDelimiter" } } },
           ],
+          data: { gherkin: { type: "segmentLine" } },
         });
         expect(str).toMatch(`${"#".repeat(level)} ${keyword}:`);
       },
@@ -113,11 +115,11 @@ suite("Markdown with Gherkin to mdast", () => {
               {
                 type: "text",
                 value: "Scenario Outline:",
-                data: { gherkin: { type: "segmentKeyword" } },
               },
               { type: "text", value: " " },
               { type: "text", value: "eating" },
             ],
+            data: { gherkin: { type: "segmentLine" } },
           },
         ],
       });
