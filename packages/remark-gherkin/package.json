@@ -2,17 +2,22 @@
   "name": "remark-gherkin",
   "version": "0.0.0",
   "description": "remark plugin to support Markdown with Gherkin (MDG).",
-  "homepage": "https://github.com/occar421/unifiedjs-gherkin/packages/remark-gherkin",
+  "homepage": "https://github.com/occar421/unifiedjs-gherkin/tree/main/packages/remark-gherkin#readme",
   "bugs": {
     "url": "https://github.com/occar421/unifiedjs-gherkin/issues"
   },
   "license": "Apache-2.0",
   "author": "MasuqaT <occar@hotmail.co.jp>",
-  "repository": "https://github.com/occar421/unifiedjs-gherkin/packages/remark-gherkin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/occar421/unifiedjs-gherkin.git",
+    "directory": "packages/remark-gherkin"
+  },
   "files": [
     "dist"
   ],
   "type": "module",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"

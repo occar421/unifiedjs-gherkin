@@ -2,17 +2,22 @@
   "name": "mdast-util-gherkin",
   "version": "0.0.0",
   "description": "mdast extension to parse and serialize Markdown with Gherkin (MDG).",
-  "homepage": "https://github.com/occar421/unifiedjs-gherkin/packages/mdast-util-gherkin",
+  "homepage": "https://github.com/occar421/unifiedjs-gherkin/tree/main/packages/mdast-util-gherkin#readme",
   "bugs": {
     "url": "https://github.com/occar421/unifiedjs-gherkin/issues"
   },
   "license": "Apache-2.0",
   "author": "MasuqaT <occar@hotmail.co.jp>",
-  "repository": "https://github.com/occar421/unifiedjs-gherkin/packages/mdast-util-gherkin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/occar421/unifiedjs-gherkin.git",
+    "directory": "packages/mdast-util-gherkin"
+  },
   "files": [
     "dist"
   ],
   "type": "module",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"

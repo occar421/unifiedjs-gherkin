@@ -1,0 +1,20 @@
+name: CI Build
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v6
+      - uses: voidzero-dev/setup-vp@v1
+        with:
+          node-version: "lts"
+          cache: true
+      - run: vp install
+      - run: vp run ready
+      - uses: actions/upload-artifact@v7
+        with:
+          name: vp-build-artifact
+          path: dist
+          retention-days: 1

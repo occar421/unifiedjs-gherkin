@@ -27,6 +27,7 @@ catalog:
   rehype-stringify: ^10.0.1
   remark-parse: ^11.0.0
   remark-rehype: ^11.1.2
+  "@changesets/cli": ^2.31.0
 overrides:
   vite: "catalog:"
   vitest: "catalog:"
