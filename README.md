@@ -1,22 +1,36 @@
 # Unified.js Gherkin
 
-Packages to implement [Markdown with Gherkin (MDG)](https://github.com/cucumber/gherkin/blob/main/MARKDOWN_WITH_GHERKIN.md) in remark.
+[unified](https://github.com/unifiedjs/unified) packages to support [Markdown with Gherkin (MDG)](https://github.com/cucumber/gherkin/blob/main/MARKDOWN_WITH_GHERKIN.md) in [remark](https://github.com/remarkjs/remark).
+
+## Packages
+
+- [`remark-gherkin`](./packages/remark-gherkin): remark plugin.
+- [`mdast-util-gherkin`](./packages/mdast-util-gherkin): mdast utility.
 
 ## Development
 
-- Check everything is ready:
+This project uses [Vite+](https://viteplus.dev/) for development.
+
+### Setup
+
+```bash
+vp install
+```
+
+### Check & Test
 
 ```bash
 vp run ready
 ```
 
-- Run the tests:
+Or run them separately:
 
 ```bash
+vp check
 vp run -r test
 ```
 
-- Build the monorepo:
+### Build
 
 ```bash
 vp run -r build
