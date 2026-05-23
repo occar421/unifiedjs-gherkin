@@ -30,7 +30,8 @@
     "dev": "vp pack --watch",
     "test": "vp test",
     "check": "vp check",
-    "prepublishOnly": "vp run build"
+    "prepublishOnly": "vp run build",
+    "ready": "vp run check && vp run test && vp run build"
   },
   "dependencies": {
     "mdast-util-gherkin": "workspace:*",
