@@ -24,15 +24,6 @@ import { visit } from "unist-util-visit";
 import { findBefore } from "unist-util-find-before";
 import type { Root } from "mdast";
 
-declare module "mdast" {
-  interface Data {
-    gherkin?: {
-      type?: (typeof GherkinTypes)[keyof typeof GherkinTypes];
-      ident?: string;
-    };
-  }
-}
-
 const remarkLintGherkinNoTagsOnBackgrounds = lintRule<Root>(
   "remark-lint:gherkin-no-tags-on-backgrounds",
   (tree, file) => {
@@ -41,8 +32,8 @@ const remarkLintGherkinNoTagsOnBackgrounds = lintRule<Root>(
         heading.data?.gherkin?.type === GherkinTypes.SEGMENT_LINE &&
         heading.children.some(
           (child) =>
-            child.data?.gherkin?.type === GherkinTypes.SEGMENT_KEYWORD &&
             child.type === "text" &&
+            child.data?.gherkin?.type === GherkinTypes.SEGMENT_KEYWORD &&
             SegmentKeywords.BACKGROUND.some((x) => x === child.value),
         );
       if (!isBackground) {
