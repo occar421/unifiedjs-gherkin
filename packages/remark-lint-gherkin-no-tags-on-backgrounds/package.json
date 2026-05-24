@@ -1,0 +1,58 @@
+{
+  "name": "remark-lint-gherkin-no-tags-on-backgrounds",
+  "version": "0.0.0",
+  "description": "remark-lint plugin to disallow tags on backgrounds in Gherkin files.",
+  "homepage": "https://github.com/occar421/unifiedjs-gherkin/tree/main/packages/remark-lint-gherkin-no-tags-on-backgrounds#readme",
+  "bugs": {
+    "url": "https://github.com/occar421/unifiedjs-gherkin/issues"
+  },
+  "license": "Apache-2.0",
+  "author": "MasuqaT <occar@hotmail.co.jp>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/occar421/unifiedjs-gherkin.git",
+    "directory": "packages/remark-lint-gherkin-no-tags-on-backgrounds"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "dev": "vp pack --watch",
+    "test": "vp test",
+    "check": "vp check",
+    "prepublishOnly": "vp run build",
+    "ready": "vp run check && vp run test && vp run build"
+  },
+  "dependencies": {
+    "mdast-util-gherkin": "workspace:*",
+    "remark-lint": "catalog:",
+    "unified-lint-rule": "catalog:",
+    "unist-util-find-before": "catalog:",
+    "unist-util-visit": "catalog:"
+  },
+  "devDependencies": {
+    "@types/mdast": "catalog:",
+    "@types/node": "^25.6.2",
+    "@typescript/native-preview": "7.0.0-dev.20260509.2",
+    "bumpp": "^11.1.0",
+    "remark-gherkin": "workspace:*",
+    "remark-parse": "catalog:",
+    "typescript": "^6.0.3",
+    "unified": "catalog:",
+    "vite-plus": "^0.1.20"
+  },
+  "inlinedDependencies": {
+    "@types/mdast": "4.0.4",
+    "@types/unist": "3.0.3"
+  }
+}
