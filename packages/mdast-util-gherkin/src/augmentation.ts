@@ -6,13 +6,11 @@ declare module "mdast" {
       type: typeof GherkinTypes.SEGMENT_LINE;
     };
   }
-
   interface ParagraphData extends Data {
     gherkin?: {
       type: typeof GherkinTypes.TAG_LINE;
     };
   }
-
   interface TextData extends Data {
     gherkin?: {
       type:
@@ -22,17 +20,24 @@ declare module "mdast" {
         | typeof GherkinTypes.SEPARATOR;
     };
   }
-
   interface InlineCodeData extends Data {
     gherkin?: {
       type: typeof GherkinTypes.TAG;
     };
   }
-
   interface HtmlData extends Data {
     gherkin?: {
       type: typeof GherkinTypes.DELIMITED_PARAMETER;
-      ident?: string;
+      ident: string;
     };
+  }
+
+  interface Data {
+    gherkin?:
+      | HeadingData["gherkin"]
+      | ParagraphData["gherkin"]
+      | TextData["gherkin"]
+      | InlineCodeData["gherkin"]
+      | HtmlData["gherkin"];
   }
 }
