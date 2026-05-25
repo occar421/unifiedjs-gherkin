@@ -17,6 +17,14 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 
 ## When create a new package
 
+### Generate code
+
 ```
 vp create vite:library
+```
+
+### Initialize package on npm
+
+```
+npx setup-npm-trusted-publish ??? --dry-run
 ```
