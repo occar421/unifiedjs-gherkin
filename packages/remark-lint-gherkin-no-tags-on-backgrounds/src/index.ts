@@ -5,7 +5,10 @@ import { findBefore } from "unist-util-find-before";
 import type { Root } from "mdast";
 
 const remarkLintGherkinNoTagsOnBackgrounds = lintRule<Root>(
-  "remark-lint:gherkin-no-tags-on-backgrounds",
+  {
+    origin: "remark-lint:gherkin-no-tags-on-backgrounds",
+    url: "https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-gherkin-no-tags-on-backgrounds#readme",
+  },
   (tree, file) => {
     visit(tree, "heading", (heading) => {
       const isBackground =
