@@ -4,6 +4,7 @@ export const GherkinTypes = {
   SEGMENT_LINE: "segmentLine",
   SEGMENT_KEYWORD: "segmentKeyword",
   SEGMENT_DELIMITER: "segmentDelimiter",
+  STEP_LINE: "stepLine",
   STEP_KEYWORD: "stepKeyword",
   DELIMITED_PARAMETER: "delimitedParameter",
   SEPARATOR: "separator",

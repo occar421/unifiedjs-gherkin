@@ -15,7 +15,8 @@ const gherkinTransform: Transform = (tree) => {
 
     const firstChild = node.children[0];
     if (firstChild.type === "text") {
-      for (const [key, values] of Object.entries(SegmentKeywords)) {
+      for (const [key_, values] of Object.entries(SegmentKeywords)) {
+        const key = key_ as keyof typeof SegmentKeywords;
         for (const segmentKeyword of values) {
           const keyword = `${segmentKeyword}${SyntaxTokens.COLON}`;
           // e.g. ### Examples:\n
@@ -39,7 +40,10 @@ const gherkinTransform: Transform = (tree) => {
                 end: firstChild.position.end,
               };
 
-            node.data = { ...node.data, gherkin: { type: GherkinTypes.SEGMENT_LINE } };
+            node.data = {
+              ...node.data,
+              gherkin: { type: GherkinTypes.SEGMENT_LINE, segmentKeyword: key },
+            };
             node.children.unshift(
               {
                 type: "text",
@@ -48,7 +52,7 @@ const gherkinTransform: Transform = (tree) => {
                 data: {
                   gherkin: {
                     type: GherkinTypes.SEGMENT_KEYWORD,
-                    keyword: key as keyof typeof SegmentKeywords,
+                    keyword: key,
                   },
                 },
               },
@@ -111,7 +115,10 @@ const gherkinTransform: Transform = (tree) => {
                 end: firstChild.position.end,
               };
 
-            node.data = { ...node.data, gherkin: { type: GherkinTypes.SEGMENT_LINE } };
+            node.data = {
+              ...node.data,
+              gherkin: { type: GherkinTypes.SEGMENT_LINE, segmentKeyword: key },
+            };
             node.children.unshift(
               {
                 type: "text",
@@ -188,12 +195,12 @@ const gherkinTransform: Transform = (tree) => {
   });
 
   // Step Keyword
-  visit(tree, "listItem", (node) => {
-    if (node.children.length === 0) {
+  visit(tree, "listItem", (listItemNode) => {
+    if (listItemNode.children.length === 0) {
       return;
     }
 
-    const firstChild = node.children[0];
+    const firstChild = listItemNode.children[0];
     if (firstChild.type === "paragraph") {
       if (firstChild.children.length === 0) {
         return;
@@ -201,10 +208,16 @@ const gherkinTransform: Transform = (tree) => {
 
       if (firstChild.children[0].type === "text") {
         const textNode = firstChild.children[0];
-        for (const [key, values] of Object.entries(StepKeywords)) {
+        for (const [key_, values] of Object.entries(StepKeywords)) {
+          const key = key_ as keyof typeof StepKeywords;
           for (const stepKeyword of values) {
             const match = textNode.value.slice(stepKeyword.length).match(/^(\s+)/);
             if (textNode.value.startsWith(stepKeyword) && match) {
+              listItemNode.data = {
+                ...listItemNode.data,
+                gherkin: { type: GherkinTypes.STEP_LINE, stepKeyword: key },
+              };
+
               firstChild.children.shift();
 
               const separator = match[1];
@@ -245,7 +258,7 @@ const gherkinTransform: Transform = (tree) => {
                   data: {
                     gherkin: {
                       type: GherkinTypes.STEP_KEYWORD,
-                      keyword: key as keyof typeof StepKeywords,
+                      keyword: key,
                     },
                   },
                 },

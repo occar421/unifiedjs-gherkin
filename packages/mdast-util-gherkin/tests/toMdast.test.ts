@@ -68,7 +68,7 @@ suite("Markdown with Gherkin to mdast", () => {
               { type: "text", value: " ", data: { gherkin: { type: "separator" } } },
               { type: "text", value: "Hello" },
             ],
-            data: { gherkin: { type: "segmentLine" } },
+            data: { gherkin: { type: "segmentLine", segmentKeyword: key } },
           });
         },
       );
@@ -94,7 +94,7 @@ suite("Markdown with Gherkin to mdast", () => {
               },
               { type: "text", value: `:`, data: { gherkin: { type: "segmentDelimiter" } } },
             ],
-            data: { gherkin: { type: "segmentLine" } },
+            data: { gherkin: { type: "segmentLine", segmentKeyword: key } },
           });
         },
       );
@@ -140,6 +140,7 @@ suite("Markdown with Gherkin to mdast", () => {
                     ],
                   },
                 ],
+                data: { gherkin: { type: "stepLine", stepKeyword: keyword } },
               },
             ],
           });

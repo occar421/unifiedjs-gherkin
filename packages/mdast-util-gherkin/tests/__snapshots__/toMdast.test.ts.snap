@@ -88,6 +88,7 @@ exports[`Markdown with Gherkin to mdast > Test with fixtures > mdgExample.featur
       ],
       "data": {
         "gherkin": {
+          "segmentKeyword": "Feature",
           "type": "segmentLine",
         },
       },
@@ -276,6 +277,7 @@ not the ",
       ],
       "data": {
         "gherkin": {
+          "segmentKeyword": "Rule",
           "type": "segmentLine",
         },
       },
@@ -499,6 +501,7 @@ not the ",
       ],
       "data": {
         "gherkin": {
+          "segmentKeyword": "ScenarioOutline",
           "type": "segmentLine",
         },
       },
@@ -637,6 +640,12 @@ not the ",
               "type": "paragraph",
             },
           ],
+          "data": {
+            "gherkin": {
+              "stepKeyword": "Given",
+              "type": "stepLine",
+            },
+          },
           "position": {
             "end": {
               "column": 36,
@@ -770,6 +779,12 @@ not the ",
               "type": "paragraph",
             },
           ],
+          "data": {
+            "gherkin": {
+              "stepKeyword": "When",
+              "type": "stepLine",
+            },
+          },
           "position": {
             "end": {
               "column": 29,
@@ -903,6 +918,12 @@ not the ",
               "type": "paragraph",
             },
           ],
+          "data": {
+            "gherkin": {
+              "stepKeyword": "Then",
+              "type": "stepLine",
+            },
+          },
           "position": {
             "end": {
               "column": 38,
@@ -984,6 +1005,7 @@ not the ",
       ],
       "data": {
         "gherkin": {
+          "segmentKeyword": "Examples",
           "type": "segmentLine",
         },
       },

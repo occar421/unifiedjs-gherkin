@@ -4,6 +4,7 @@ declare module "mdast" {
   interface HeadingData extends Data {
     gherkin?: {
       type: typeof GherkinTypes.SEGMENT_LINE;
+      segmentKeyword: keyof typeof SegmentKeywords;
     };
   }
   interface ParagraphData extends Data {
@@ -36,6 +37,12 @@ declare module "mdast" {
       ident: string;
     };
   }
+  interface ListItemData extends Data {
+    gherkin?: {
+      type: typeof GherkinTypes.STEP_LINE;
+      stepKeyword: keyof typeof StepKeywords;
+    };
+  }
 
   interface Data {
     gherkin?:
@@ -43,6 +50,7 @@ declare module "mdast" {
       | ParagraphData["gherkin"]
       | TextData["gherkin"]
       | InlineCodeData["gherkin"]
-      | HtmlData["gherkin"];
+      | HtmlData["gherkin"]
+      | ListItemData["gherkin"];
   }
 }
