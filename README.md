@@ -6,6 +6,9 @@
 
 - [`remark-gherkin`](./packages/remark-gherkin): remark plugin.
 - [`mdast-util-gherkin`](./packages/mdast-util-gherkin): mdast utility.
+- `remark-lint-gherkin`: remark-lint plugin to disallow multiline steps in Gherkin files.
+  - [`gherkin-lint`](https://github.com/gherkin-lint/gherkin-lint) equivalent
+    - "no-multiline-steps" is excluded because of the difference of feature files and markdown files.
 
 ## Development
 
