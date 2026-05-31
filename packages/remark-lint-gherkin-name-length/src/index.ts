@@ -1,9 +1,8 @@
 import "mdast-util-gherkin";
 import { lintRule } from "unified-lint-rule";
 import { visitParents } from "unist-util-visit-parents";
-import { findAllAfter } from "unist-util-find-all-after";
-import { toString } from "mdast-util-to-string";
-import type { Root, Heading, ListItem } from "mdast";
+import type { Root } from "mdast";
+import { getSegmentName, getStepName } from "mdast-util-gherkin";
 
 export interface Options {
   Feature?: number;
@@ -39,7 +38,7 @@ const remarkLintGherkinNameLength = lintRule<Root, Options>(
           return;
         }
 
-        const name = getSegmentName(heading);
+        const name = getSegmentName(heading) ?? "";
         const limit = limits[limitKey];
         if (name.length > limit) {
           file.message(
@@ -54,7 +53,7 @@ const remarkLintGherkinNameLength = lintRule<Root, Options>(
           return;
         }
 
-        const name = getStepName(listItem);
+        const name = getStepName(listItem) ?? "";
         const limit = limits.step;
         if (name.length > limit) {
           file.message(
@@ -66,34 +65,5 @@ const remarkLintGherkinNameLength = lintRule<Root, Options>(
     });
   },
 );
-
-function getSegmentName(heading: Heading): string {
-  const separator = heading.children.find((child) => child.data?.gherkin?.type === "separator");
-  if (separator) {
-    const nameNodes = findAllAfter(heading, separator);
-    return toString(nameNodes).trim();
-  }
-
-  return toString(heading).trim();
-}
-
-function getStepName(listItem: ListItem): string {
-  if (listItem.children.length === 0) {
-    return "";
-  }
-
-  const paragraph = listItem.children[0];
-  if (paragraph.type !== "paragraph") {
-    return "";
-  }
-
-  const separator = paragraph.children.find((child) => child.data?.gherkin?.type === "separator");
-  if (separator) {
-    const nameNodes = findAllAfter(paragraph, separator);
-    return toString(nameNodes).trim();
-  }
-
-  return toString(listItem).trim();
-}
 
 export default remarkLintGherkinNameLength;
