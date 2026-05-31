@@ -15,3 +15,5 @@ export function gherkinToMarkdown(_options: {} = {}): ToMarkdownExtension {
     join: joins,
   };
 }
+
+export * from "./util.ts";

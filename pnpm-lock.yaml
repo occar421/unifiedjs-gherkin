@@ -96,6 +96,9 @@ importers:
       mdast-util-to-markdown:
         specifier: 'catalog:'
         version: 2.1.2
+      mdast-util-to-string:
+        specifier: 'catalog:'
+        version: 4.0.0
       unist-util-find-all-after:
         specifier: 'catalog:'
         version: 5.0.0
