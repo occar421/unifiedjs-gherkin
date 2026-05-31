@@ -45,3 +45,7 @@ jobs:
         with:
           publish: vp run release
           version: vp run version
+        env:
+          # Workaround for pnpm OIDC issue
+          ACTIONS_ID_TOKEN_REQUEST_URL: ${{ env.ACTIONS_ID_TOKEN_REQUEST_URL }}
+          ACTIONS_ID_TOKEN_REQUEST_TOKEN: ${{ env.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}
