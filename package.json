@@ -13,7 +13,7 @@
   "scripts": {
     "ready": "vp run -r ready",
     "prepare": "vp config",
-    "release": "pnpm publish -r",
+    "release": "pnpm publish -r --no-git-checks",
     "version": "changeset version"
   },
   "devDependencies": {
