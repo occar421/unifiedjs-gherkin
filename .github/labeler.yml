@@ -1,0 +1,5 @@
+automated:
+  - branch: ["^changeset-release/"]
+
+release:
+  - branch: ["^changeset-release/"]
