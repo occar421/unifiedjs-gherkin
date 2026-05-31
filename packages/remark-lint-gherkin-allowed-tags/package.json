@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-gherkin-allowed-tags",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "remark-lint plugin to only permit specified tags in Gherkin files.",
   "homepage": "https://github.com/occar421/unifiedjs-gherkin/tree/main/packages/remark-lint-gherkin-allowed-tags#readme",
   "bugs": {

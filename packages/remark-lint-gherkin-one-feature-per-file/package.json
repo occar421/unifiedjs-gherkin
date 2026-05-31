@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-gherkin-one-feature-per-file",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "remark-lint plugin to enforce one feature per file in Gherkin files.",
   "homepage": "https://github.com/occar421/unifiedjs-gherkin/tree/main/packages/remark-lint-gherkin-one-feature-per-file#readme",
   "bugs": {

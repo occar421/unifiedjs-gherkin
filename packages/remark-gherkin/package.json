@@ -1,6 +1,6 @@
 {
   "name": "remark-gherkin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "remark plugin to support Markdown with Gherkin (MDG).",
   "homepage": "https://github.com/occar421/unifiedjs-gherkin/tree/main/packages/remark-gherkin#readme",
   "bugs": {

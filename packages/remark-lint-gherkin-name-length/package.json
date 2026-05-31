@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-gherkin-name-length",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "remark-lint plugin to enforce maximum name length of Gherkin elements.",
   "homepage": "https://github.com/occar421/unifiedjs-gherkin/tree/main/packages/remark-lint-gherkin-name-length#readme",
   "bugs": {
